@@ -1,10 +1,7 @@
 <% layout('layouts/boilerplate')%> <% let numMon = 0%> <% let numTues = 0%> <%
 let numWed = 0%> <% let numThur = 0%> <% let numFri = 0%> <% let numSat = 0%> <%
 let numSun = 0%>
-<h1 class="text-center fs-1" style="color: #3a5673; font-size: 70px">
-  Task Timer
-</h1>
-<hr />
+
 <% let mondays = [];%> <% let tuesdays = [];%> <% let wednesdays = [];%> <% let
 thursdays = [];%> <% let fridays = [];%> <% let saturdays = [];%> <% let sundays
 = [];%> <%for(task of tasks){ %> <% if(task.day == "Monday"){%> <%
@@ -17,6 +14,25 @@ if(task.day == "Friday"){%> <% fridays.push(task);%> <%numFri = numFri +
 task.time; %> <% }%> <% if(task.day == "Saturday"){%> <% saturdays.push(task);%>
 <%numSat = numSat + task.time; %> <% }%> <% if(task.day == "Sunday"){%> <%
 sundays.push(task);%> <%numSun = numSun + task.time; %> <% }%> <% }%>
+<% let totalTime = numMon + numTues + numWed + numThur + numFri +
+numSat + numSun;%>
+
+<h1 class="text-center fs-1" style="color: #3a5673; font-size: 70px">
+  Task Timer
+</h1>
+<hr />
+
+<div class="row align-items-center content">
+  <div class="text-center">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+        <h5>
+          Total Time: <span class="badge bg-secondary"><%=totalTime %></span>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row align-items-center content">
   <div class="text-center">

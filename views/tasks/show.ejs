@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate')%>
+<div class="card text-center">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="mb-5">
+        <h1 class="text-center">Title: <%= task.title %></h1>
+      </div>
+      <div class="mb-5">
+        <h2 class="text-center justify-content-center">
+          Description: <%= task.description %>
+        </h2>
+      </div>
+
+      <div class="col-4 offset-4">
+        <div class="mb-5">
+          <a
+            class="btn"
+            style="background-color: #f8e5e6"
+            href="/tasks/<%=task._id%>/edit"
+            >Edit</a
+          >
+        </div>
+        <div class="mb-5">
+          <form
+            href="/"
+            action="/tasks/<%=task._id%>?_method=DELETE"
+            method="POST"
+          >
+            <button style="border: none; background-color: #f8e5e6">
+              Delete
+            </button>
+          </form>
+        </div>
+        <div class="mb-5">
+          <a href="/" class="btn" style="background-color: #f8e5e6"
+            >All Tasks</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

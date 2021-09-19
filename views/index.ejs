@@ -1,0 +1,285 @@
+<% layout('layouts/boilerplate')%> <% let numMon = 0%> <% let numTues = 0%> <%
+let numWed = 0%> <% let numThur = 0%> <% let numFri = 0%> <% let numSat = 0%> <%
+let numSun = 0%>
+<h1 class="text-center fs-1" style="color: #3a5673; font-size: 70px">
+  Task Timer
+</h1>
+<hr />
+<% let mondays = [];%> <% let tuesdays = [];%> <% let wednesdays = [];%> <% let
+thursdays = [];%> <% let fridays = [];%> <% let saturdays = [];%> <% let sundays
+= [];%> <%for(task of tasks){ %> <% if(task.day == "Monday"){%> <%
+mondays.push(task);%> <%numMon = numMon + task.time; %> <% }%> <% if(task.day ==
+"Tuesday"){%> <% tuesdays.push(task);%> <%numTues = numTues + task.time; %> <%
+}%> <% if(task.day == "Wednesday"){%> <% wednesdays.push(task);%> <%numWed =
+numWed + task.time; %> <% }%> <% if(task.day == "Thursday"){%> <%
+thursdays.push(task);%> <%numThur = numThur + task.time; %> <% }%> <%
+if(task.day == "Friday"){%> <% fridays.push(task);%> <%numFri = numFri +
+task.time; %> <% }%> <% if(task.day == "Saturday"){%> <% saturdays.push(task);%>
+<%numSat = numSat + task.time; %> <% }%> <% if(task.day == "Sunday"){%> <%
+sundays.push(task);%> <%numSun = numSun + task.time; %> <% }%> <% }%>
+
+<div class="row align-items-center content">
+  <div class="text-center">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+        <h2>Monday</h2>
+        <div class="col">
+          <%for(mon of mondays){ %>
+          <span>
+            <a
+              style="
+                overflow: hidden;
+                background-color: whitesmoke;
+                color: #288396;
+                font-size: 20px;
+              "
+              class="card-title btn img-responsive"
+              href="/tasks/<%=mon._id%>"
+              id="Monday${numMon}`"
+              name="task[titles]"
+              ><%= mon.title %>
+              <div style="overflow: hidden; font-size: 10px" class="card-body">
+                <%= mon.description %>
+              </div>
+            </a>
+          </span>
+          <%} %>
+        </div>
+        <div class="col" style="color: #3a5673; font-size: 30px">
+          <span type="button" class="btn-sm btn-light rounded-pill">
+            Monday Total Hours:
+            <span class="text" style="color: #288396"> <%= numMon %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-center content">
+  <div class="text-center">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+        <h2>Tuesday</h2>
+        <div class="col">
+          <%for(tues of tuesdays){ %>
+          <span>
+            <a
+              style="
+                overflow: hidden;
+                background-color: whitesmoke;
+                color: #288396;
+                font-size: 20px;
+              "
+              class="card-title btn img-responsive"
+              href="/tasks/<%=tues._id%>"
+              id="Tuesday${numTues}`"
+              name="task[titles]"
+              ><%= tues.title %>
+              <div style="overflow: hidden; font-size: 10px" class="card-body">
+                <%= tues.description %>
+              </div>
+            </a>
+          </span>
+          <%} %>
+        </div>
+        <div class="col" style="color: #3a5673; font-size: 30px">
+          <span type="button" class="btn-sm btn-light rounded-pill">
+            Tuesday Total Hours:
+            <span class="text" style="color: #288396"> <%= numTues %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-center content">
+  <div class="text-center">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+        <h2>Wednesday</h2>
+        <div class="col">
+          <%for(wed of wednesdays){ %>
+          <span>
+            <a
+              style="
+                overflow: hidden;
+                background-color: whitesmoke;
+                color: #288396;
+                font-size: 20px;
+              "
+              class="card-title btn img-responsive"
+              href="/tasks/<%=wed._id%>"
+              id="Wednesday${numWed}`"
+              name="task[titles]"
+              ><%= wed.title %>
+              <div style="overflow: hidden; font-size: 10px" class="card-body">
+                <%= wed.description %>
+              </div>
+            </a>
+          </span>
+          <%} %>
+        </div>
+        <div class="col" style="color: #3a5673; font-size: 30px">
+          <span type="button" class="btn-sm btn-light rounded-pill">
+            Wednesday Total Hours:
+            <span class="text" style="color: #288396"> <%= numWed %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-center content">
+  <div class="text-center">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+        <h2>Thursday</h2>
+        <div class="col">
+          <%for(thur of thursdays){ %>
+          <span>
+            <a
+              style="
+                overflow: hidden;
+                background-color: whitesmoke;
+                color: #288396;
+                font-size: 20px;
+              "
+              class="card-title btn img-responsive"
+              href="/tasks/<%=thur._id%>"
+              id="Thursday`${numThur}`"
+              name="task[titles]"
+              ><%= thur.title %>
+              <div style="overflow: hidden; font-size: 10px" class="card-body">
+                <%= thur.description %>
+              </div>
+            </a>
+          </span>
+          <% } %>
+        </div>
+        <div class="col" style="color: #3a5673; font-size: 30px">
+          <span type="button" class="btn-sm btn-light rounded-pill">
+            Thursday Total Hours:
+            <span class="text" style="color: #288396"> <%= numThur %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-center content">
+  <div class="text-center">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+        <h2>Friday</h2>
+        <div class="col">
+          <%for(fri of fridays){ %>
+          <span>
+            <a
+              style="
+                overflow: hidden;
+                background-color: whitesmoke;
+                color: #288396;
+                font-size: 20px;
+              "
+              class="card-title btn img-responsive"
+              href="/tasks/<%=fri._id%>"
+              id="Friday`${numFri}`"
+              name="task[titles]"
+              ><%= fri.title %>
+              <div style="overflow: hidden; font-size: 10px" class="card-body">
+                <%= fri.description %>
+              </div>
+            </a>
+          </span>
+          <% } %>
+        </div>
+        <div class="col" style="color: #3a5673; font-size: 30px">
+          <span type="button" class="btn-sm btn-light rounded-pill">
+            Friday Total Hours:
+            <span class="text" style="color: #288396"> <%= numFri %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-center content">
+  <div class="text-center">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+        <h2>Saturday</h2>
+        <div class="col">
+          <%for(sat of saturdays){ %>
+          <span>
+            <a
+              style="
+                overflow: hidden;
+                background-color: whitesmoke;
+                color: #288396;
+                font-size: 20px;
+              "
+              class="card-title btn img-responsive"
+              href="/tasks/<%=sat._id%>"
+              id="Saturday`${numSat}`"
+              name="task[titles]"
+              ><%= sat.title %>
+              <div style="overflow: hidden; font-size: 10px" class="card-body">
+                <%= sat.description %>
+              </div>
+            </a>
+          </span>
+          <%} %>
+        </div>
+        <div class="col" style="color: #3a5673; font-size: 30px">
+          <span type="button" class="btn-sm btn-light rounded-pill">
+            Saturday Total Hours:
+            <span class="text" style="color: #288396"> <%= numSat %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row align-items-center content">
+  <div class="text-center">
+    <div class="row justify-content-center">
+      <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
+        <h2>Sunday</h2>
+        <div class="col">
+          <%for(sun of sundays){ %>
+          <span>
+            <a
+              style="
+                overflow: hidden;
+                background-color: whitesmoke;
+                color: #288396;
+                font-size: 20px;
+              "
+              class="card-title btn img-responsive"
+              href="/tasks/<%=sun._id%>"
+              id="Sunday`${numSun}`"
+              name="task[titles]"
+              ><%= sun.title %>
+              <div style="overflow: hidden; font-size: 10px" class="card-body">
+                <%= sun.description %>
+              </div>
+            </a>
+          </span>
+          <%} %>
+        </div>
+        <div class="col" style="color: #3a5673; font-size: 30px">
+          <span type="button" class="btn-sm btn-light rounded-pill">
+            Sunday Total Hours
+            <span class="text" style="color: #288396"> <%= numSun %></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

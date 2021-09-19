@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+  <h1 class="text-center">New Task</h1>
+  <div class="col-6 offset-3">
+    <form action="/tasks" method="POST">
+      <div class="mb-4">
+        <label class="form-label" for="title">Title</label>
+        <input class="form-control" type="text" id="title" name="task[title]" />
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select the Day</label>
+        <select name="task[day]" class="form-control" id="day">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="task[description]"
+        ></textarea>
+      </div>
+      <div class="mb-4">
+        <label class="form-label" for="time">Task Time</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="time"
+            placeholder="0"
+            aria-label="time"
+            aria-describedby="time-label"
+            name="task[time]"
+          />
+          <span class="input-group-text" id="time-label">hr</span>
+        </div>
+      </div>
+      <div class="mb-4">
+        <button
+          id="btnsucc"
+          class="btn"
+          style="background-color: #288396; color: whitesmoke"
+        >
+          Add Task
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

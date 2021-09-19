@@ -1,0 +1,59 @@
+<% layout('layouts/boilerplate')%>
+<div class="row">
+  <h1 class="text-center">Edit task</h1>
+  <div class="col-6 offset-3">
+    <form action="/tasks/<%=task._id%>?_method=PUT" method="POST">
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="task[title]"
+          value="<%=task.title %>"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="time">Task Time</label>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control"
+            id="time"
+            placeholder="0"
+            aria-label="time"
+            aria-describedby="time-label"
+            name="task[time]"
+            value="<%=task.time %>"
+          />
+          <span class="input-group-text" id="time-label">hr</span>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="task[description]"
+        >
+<%= task.description%></textarea
+        >
+      </div>
+      <div class="mb-3">
+        <button
+          class="btn"
+          style="background-color: #288396; color: whitesmoke"
+        >
+          Update task
+        </button>
+      </div>
+    </form>
+    <a
+      class="btn"
+      style="background-color: #288396; color: whitesmoke"
+      href="/tasks/<%= task._id%>"
+      >Back To task</a
+    >
+  </div>
+</div>

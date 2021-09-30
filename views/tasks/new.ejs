@@ -2,11 +2,19 @@
 <div class="row">
   <h1 class="text-center">New Task</h1>
   <div class="col-6 offset-3">
-    <form action="/tasks" method="POST">
+    <form action="/tasks/index" method="POST" novalidate class="validated-form">
       <div class="mb-4">
         <label class="form-label" for="title">Title</label>
-        <input class="form-control" type="text" id="title" name="task[title]" />
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="task[title]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
       </div>
+
       <div class="form-group">
         <label for="exampleFormControlSelect1">Select the Day</label>
         <select name="task[day]" class="form-control" id="day">
@@ -18,6 +26,7 @@
           <option value="Saturday">Saturday</option>
           <option value="Sunday">Sunday</option>
         </select>
+        <div class="valid-feedback">Looks good!</div>
       </div>
 
       <div class="mb-4">
@@ -27,7 +36,9 @@
           type="text"
           id="description"
           name="task[description]"
+          required
         ></textarea>
+        <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-4">
         <label class="form-label" for="time">Task Time</label>
@@ -40,8 +51,10 @@
             aria-label="time"
             aria-describedby="time-label"
             name="task[time]"
+            required
           />
           <span class="input-group-text" id="time-label">hr</span>
+          <div class="valid-feedback">Looks good!</div>
         </div>
       </div>
       <div class="mb-4">

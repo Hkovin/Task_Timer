@@ -1,4 +1,5 @@
-<% layout('layouts/boilerplate')%>
+<% layout('layouts/boilerplate')%> <% let str = "hours"%> <% if(task.time == 1){
+str ="hour"}%>
 <div class="card text-center">
   <div class="row">
     <div class="col-6 offset-3">
@@ -6,8 +7,16 @@
         <h1 class="text-center">Title: <%= task.title %></h1>
       </div>
       <div class="mb-5">
+        <h2 class="text-center justify-content-center">Day: <%= task.day %></h2>
+      </div>
+      <div class="mb-5">
         <h2 class="text-center justify-content-center">
           Description: <%= task.description %>
+        </h2>
+      </div>
+      <div class="mb-5">
+        <h2 class="text-center justify-content-center">
+          Time: <%= task.time %> <%= str %>
         </h2>
       </div>
 
@@ -32,7 +41,7 @@
           </form>
         </div>
         <div class="mb-5">
-          <a href="/" class="btn" style="background-color: #f8e5e6"
+          <a href="/tasks/index" class="btn" style="background-color: #f8e5e6"
             >All Tasks</a
           >
         </div>
@@ -40,3 +49,4 @@
     </div>
   </div>
 </div>
+

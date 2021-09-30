@@ -1,21 +1,19 @@
-<% layout('layouts/boilerplate')%> <% let numMon = 0%> <% let numTues = 0%> <%
-let numWed = 0%> <% let numThur = 0%> <% let numFri = 0%> <% let numSat = 0%> <%
-let numSun = 0%>
-
-<% let mondays = [];%> <% let tuesdays = [];%> <% let wednesdays = [];%> <% let
-thursdays = [];%> <% let fridays = [];%> <% let saturdays = [];%> <% let sundays
-= [];%> <%for(task of tasks){ %> <% if(task.day == "Monday"){%> <%
-mondays.push(task);%> <%numMon = numMon + task.time; %> <% }%> <% if(task.day ==
-"Tuesday"){%> <% tuesdays.push(task);%> <%numTues = numTues + task.time; %> <%
-}%> <% if(task.day == "Wednesday"){%> <% wednesdays.push(task);%> <%numWed =
-numWed + task.time; %> <% }%> <% if(task.day == "Thursday"){%> <%
-thursdays.push(task);%> <%numThur = numThur + task.time; %> <% }%> <%
-if(task.day == "Friday"){%> <% fridays.push(task);%> <%numFri = numFri +
-task.time; %> <% }%> <% if(task.day == "Saturday"){%> <% saturdays.push(task);%>
-<%numSat = numSat + task.time; %> <% }%> <% if(task.day == "Sunday"){%> <%
-sundays.push(task);%> <%numSun = numSun + task.time; %> <% }%> <% }%>
-<% let totalTime = numMon + numTues + numWed + numThur + numFri +
-numSat + numSun;%>
+<% layout('layouts/boilerplate')%> <%let totalTime = 0; %> <% let numMon = 0;%>
+<% let numTues = 0;%> <% let numWed = 0;%> <% let numThur = 0;%> <% let numFri =
+0;%> <% let numSat = 0;%> <% let numSun = 0;%> <% let mondays = [];%> <% let
+tuesdays = [];%> <% let wednesdays = [];%> <% let thursdays = [];%> <%let
+fridays = [];%> <%let saturdays = [];%> <%let sundays = [];%> <%let i = 0;%> <%
+for (task of tasks) {%><% if (task.day == "Monday") {%> <% mondays.push(task);%>
+<% numMon = numMon + task.time;%> <% }%> <%if (task.day == "Tuesday") {%> <%
+tuesdays.push(task);%> <% numTues = numTues + task.time;%> <% }%> <% if
+(task.day == "Wednesday") {%> <% wednesdays.push(task);%> <% numWed = numWed +
+task.time;%> <%}%> <%if (task.day == "Thursday") {%> <% thursdays.push(task);%>
+<% numThur = numThur + task.time;%> <% }%> <% if (task.day == "Friday") {%> <%
+fridays.push(task);%> <% numFri = numFri + task.time;%> <% }%> <% if (task.day
+== "Saturday") {%> <% saturdays.push(task);%> <% numSat = numSat + task.time;%>
+<% }%> <% if (task.day == "Sunday") {%> <% sundays.push(task);%> <% numSun =
+numSun + task.time;%> <% }%><%}%> <% totalTime= numMon + numTues + numWed +
+numThur + numFri + numSat + numSun;%>
 
 <h1 class="text-center fs-1" style="color: #3a5673; font-size: 70px">
   Task Timer
@@ -27,7 +25,8 @@ numSat + numSun;%>
     <div class="row justify-content-center">
       <div class="col-10 col-lg-8 blurb mb-5 mb-md-0">
         <h5>
-          Total Time: <span class="badge bg-secondary"><%=totalTime %></span>
+          Total Time:
+          <span class="badge bg-secondary"><%=totalTime %></span> Hours
         </h5>
       </div>
     </div>
@@ -54,7 +53,7 @@ numSat + numSun;%>
               id="Monday${numMon}`"
               name="task[titles]"
               ><%= mon.title %>
-              <div style="overflow: hidden; font-size: 10px" class="card-body">
+              <div style="overflow: hidden; font-size: 15px" class="card-body">
                 <%= mon.description %>
               </div>
             </a>
@@ -92,7 +91,7 @@ numSat + numSun;%>
               id="Tuesday${numTues}`"
               name="task[titles]"
               ><%= tues.title %>
-              <div style="overflow: hidden; font-size: 10px" class="card-body">
+              <div style="overflow: hidden; font-size: 15px" class="card-body">
                 <%= tues.description %>
               </div>
             </a>
@@ -130,7 +129,7 @@ numSat + numSun;%>
               id="Wednesday${numWed}`"
               name="task[titles]"
               ><%= wed.title %>
-              <div style="overflow: hidden; font-size: 10px" class="card-body">
+              <div style="overflow: hidden; font-size: 15px" class="card-body">
                 <%= wed.description %>
               </div>
             </a>
@@ -168,7 +167,7 @@ numSat + numSun;%>
               id="Thursday`${numThur}`"
               name="task[titles]"
               ><%= thur.title %>
-              <div style="overflow: hidden; font-size: 10px" class="card-body">
+              <div style="overflow: hidden; font-size: 15px" class="card-body">
                 <%= thur.description %>
               </div>
             </a>
@@ -206,7 +205,7 @@ numSat + numSun;%>
               id="Friday`${numFri}`"
               name="task[titles]"
               ><%= fri.title %>
-              <div style="overflow: hidden; font-size: 10px" class="card-body">
+              <div style="overflow: hidden; font-size: 15px" class="card-body">
                 <%= fri.description %>
               </div>
             </a>
@@ -244,7 +243,7 @@ numSat + numSun;%>
               id="Saturday`${numSat}`"
               name="task[titles]"
               ><%= sat.title %>
-              <div style="overflow: hidden; font-size: 10px" class="card-body">
+              <div style="overflow: hidden; font-size: 15px" class="card-body">
                 <%= sat.description %>
               </div>
             </a>
@@ -282,7 +281,7 @@ numSat + numSun;%>
               id="Sunday`${numSun}`"
               name="task[titles]"
               ><%= sun.title %>
-              <div style="overflow: hidden; font-size: 10px" class="card-body">
+              <div style="overflow: hidden; font-size: 15px" class="card-body">
                 <%= sun.description %>
               </div>
             </a>
@@ -299,3 +298,4 @@ numSat + numSun;%>
     </div>
   </div>
 </div>
+
